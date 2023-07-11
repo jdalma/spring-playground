@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Select
 import org.springframework.stereotype.Repository
 
 @Mapper
-open interface Example01PersonMapper {
+interface Example01PersonMapper {
 
     @Insert(
         """
