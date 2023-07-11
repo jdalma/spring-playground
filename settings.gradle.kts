@@ -1,1 +1,1 @@
-rootProject.name = "data-access"
+rootProject.name = "spring-playground"
