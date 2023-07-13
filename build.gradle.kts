@@ -1,5 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val resilience4jVersion = "1.7.0"
+
 plugins {
 	id("org.springframework.boot") version "3.0.3"
 	id("io.spring.dependency-management") version "1.1.0"
@@ -25,7 +27,18 @@ dependencies {
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1")
 //	implementation("org.mybatis:mybatis:3.5.11")
 //	implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.4.1")
+
+	// resilience4j
+	implementation("io.github.resilience4j:resilience4j-circuitbreaker:${resilience4jVersion}")
+	implementation("io.github.resilience4j:resilience4j-ratelimiter:${resilience4jVersion}")
+	implementation("io.github.resilience4j:resilience4j-retry:${resilience4jVersion}")
+	implementation("io.github.resilience4j:resilience4j-bulkhead:${resilience4jVersion}")
+	implementation("io.github.resilience4j:resilience4j-cache:${resilience4jVersion}")
+	implementation("io.github.resilience4j:resilience4j-timelimiter:${resilience4jVersion}")
+
 	runtimeOnly("com.mysql:mysql-connector-j")
+
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.1")
 }
