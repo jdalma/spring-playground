@@ -1,4 +1,4 @@
-package example.adviceTest
+package example.advice
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

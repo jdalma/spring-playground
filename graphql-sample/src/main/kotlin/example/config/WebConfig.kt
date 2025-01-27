@@ -1,4 +1,4 @@
-package example.adviceTest
+package example.config
 
 import jakarta.servlet.Filter
 import org.springframework.boot.web.servlet.FilterRegistrationBean
@@ -13,23 +13,21 @@ class WebConfig: WebMvcConfigurer {
     @Bean
     fun addSuccessFilter(): FilterRegistrationBean<Filter> {
         return FilterRegistrationBean<Filter>(SuccessFilter()).apply {
-            this.addUrlPatterns("/adviceTest")
+            this.addUrlPatterns("/*")
         }
     }
-
-    @Bean
-    fun addExceptionFilter(): FilterRegistrationBean<Filter> {
-        return FilterRegistrationBean<Filter>(ExceptionFilter()).apply {
-            this.addUrlPatterns("/adviceTest")
-        }
-    }
+    //
+    // @Bean
+    // fun addExceptionFilter(): FilterRegistrationBean<Filter> {
+    //     return FilterRegistrationBean<Filter>(ExceptionFilter()).apply {
+    //         this.addUrlPatterns("/advice")
+    //     }
+    // }
 
     override fun addInterceptors(registry: InterceptorRegistry) {
         registry.apply {
-            this.addInterceptor(SuccessInterceptor()).addPathPatterns("/adviceTest")
-            this.addInterceptor(ExceptionInterceptor()).addPathPatterns("/adviceTest")
+            this.addInterceptor(SuccessInterceptor()).addPathPatterns("/*")
+            // this.addInterceptor(ExceptionInterceptor()).addPathPatterns("/adviceTest")
         }
     }
 }
-
-

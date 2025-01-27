@@ -1,4 +1,4 @@
-package example.adviceTest
+package example.advice
 
 import example.logger
 import jakarta.servlet.*
@@ -36,7 +36,7 @@ class ExceptionFilter : Filter {
 
     override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
         logger.info("exception filter - doFilter(), hashcode: ${System.identityHashCode(this)}")
-        throw FilterException("FilterException 발생!!!")
+        // throw FilterException("FilterException 발생!!!")
     }
 
     override fun destroy() {
@@ -108,4 +108,3 @@ class ExceptionInterceptor : HandlerInterceptor {
         logger.info("exception interceptor - afterCompletion(), hashcode: ${System.identityHashCode(this)}")
     }
 }
-

@@ -1,0 +1,59 @@
+type Query {
+    findAllCompanies(filter: CompanyFilter): CompanyConnection!
+    findCompanyById(companyId: Int!): CompanyResponse!
+}
+
+input CompanyFilter {
+    nameOrAliasLike: String
+    statusIn: [CompanyState!]
+}
+
+type CompanyConnection {
+    totalCount: Int!
+    edges: [CompanyEdge!]!
+}
+
+type CompanyEdge {
+    cursor: String!
+    node: CompanyResponse!
+}
+
+type CompanyResponse {
+    id: ID!
+    name: String!
+    alias: String!
+    state: CompanyState!,
+    staff: Staff
+}
+
+type Staff {
+    name: String
+}
+
+enum CompanyState {
+    NORMAL
+    PAUSED
+    CLOSED
+    DELETED
+}
+
+type Mutation {
+    createCompany(createCompanyRequest: CreateCompanyRequest!): CompanyResponse!
+    updateCompany(id: String!, updateCompanyRequest: UpdateCompanyRequest!): CompanyResponse!
+}
+
+input CreateCompanyRequest {
+    name: String!
+    alias: String!
+    representative: StaffInput!
+}
+
+input UpdateCompanyRequest {
+    name: String!
+    alias: String!
+    representative: StaffInput!
+}
+
+input StaffInput {
+    name: String
+}

@@ -1,0 +1,8 @@
+dgs:
+  graphql:
+    schema-locations:
+      - classpath*:schema/**/*.graphql*
+
+logging:
+  level:
+    notprivacysafe: DEBUG

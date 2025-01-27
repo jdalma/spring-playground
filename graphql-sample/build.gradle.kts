@@ -9,26 +9,30 @@ plugins {
 
 java.sourceCompatibility = JavaVersion.VERSION_17
 
+val dgsVersion: String by project
+val dgsTestVersion: String by project
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:$dgsVersion"))
-	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
-	// implementation("com.netflix.graphql.dgs:graphql-dgs-pagination")
-	// implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
-
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:$dgsVersion"))
+    implementation("com.netflix.graphql.dgs:graphql-dgs-spring-graphql-starter")
+    // implementation("com.netflix.graphql.dgs:graphql-dgs-pagination")
+    // implementation("com.netflix.graphql.dgs:graphql-dgs-extended-scalars")
+    implementation("org.springframework.data:spring-data-commons")
+    testImplementation("com.netflix.graphql.dgs:dgs-starter-test:$dgsTestVersion")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 }
 
 tasks.withType<KotlinCompile> {
-	kotlinOptions {
-		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "17"
-	}
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "17"
+    }
 }
 
 tasks.withType<Test> {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
