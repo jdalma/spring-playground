@@ -1,11 +1,9 @@
 package example.service.domain
 
 data class Company (
-    val id: Int,
-    val name: String,
+    val id: String,
     val alias: String,
-    val state: CompanyState,
-    val staffId: Int? = null
+    val state: CompanyState
 )
 
 enum class CompanyState {

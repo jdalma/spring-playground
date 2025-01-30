@@ -5,7 +5,7 @@ import example.service.domain.Company
 
 interface FindCompanyService {
 
-    fun findCompanyById(id: Int): Company
+    fun findCompanyById(id: String): Company
 
     fun findAllCompanies(filter: CompanyFilter): List<Company>
 }

@@ -1,6 +1,7 @@
 package example.service.domain
 
-data class Staff (
+data class Employee (
     val id: Int,
+    val companyId: String,
     val name: String
 )

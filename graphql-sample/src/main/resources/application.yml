@@ -5,4 +5,4 @@ dgs:
 
 logging:
   level:
-    notprivacysafe: DEBUG
+    root: trace

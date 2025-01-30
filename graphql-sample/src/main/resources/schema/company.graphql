@@ -3,30 +3,29 @@ type Query {
     findCompanyById(companyId: Int!): CompanyResponse!
 }
 
+type Mutation {
+    createCompany(createRequest: CreateCompanyRequest!): CompanyResponse!
+}
+
 input CompanyFilter {
-    nameOrAliasLike: String
     statusIn: [CompanyState!]
 }
 
 type CompanyConnection {
     totalCount: Int!
-    edges: [CompanyEdge!]!
-}
-
-type CompanyEdge {
-    cursor: String!
-    node: CompanyResponse!
+    responses: [CompanyResponse!]!
 }
 
 type CompanyResponse {
     id: ID!
-    name: String!
     alias: String!
     state: CompanyState!,
-    staff: Staff
+    employees: [Employee]
 }
 
-type Staff {
+type Employee {
+    id: Int,
+    companyId: String
     name: String
 }
 
@@ -37,23 +36,12 @@ enum CompanyState {
     DELETED
 }
 
-type Mutation {
-    createCompany(createCompanyRequest: CreateCompanyRequest!): CompanyResponse!
-    updateCompany(id: String!, updateCompanyRequest: UpdateCompanyRequest!): CompanyResponse!
-}
-
 input CreateCompanyRequest {
-    name: String!
+    id: String!
     alias: String!
-    representative: StaffInput!
+    employees: [EmployeeInput!]!
 }
 
-input UpdateCompanyRequest {
-    name: String!
-    alias: String!
-    representative: StaffInput!
-}
-
-input StaffInput {
+input EmployeeInput {
     name: String
 }
