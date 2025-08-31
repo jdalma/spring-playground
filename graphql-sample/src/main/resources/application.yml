@@ -1,8 +1,5 @@
-dgs:
-  graphql:
-    schema-locations:
-      - classpath*:schema/**/*.graphql*
-
 logging:
   level:
-    root: trace
+    org.springframework: DEBUG
+    com.netflix.graphql.dgs: DEBUG
+    root: INFO

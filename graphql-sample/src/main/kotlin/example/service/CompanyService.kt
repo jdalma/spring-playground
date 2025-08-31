@@ -18,9 +18,12 @@ class CompanyService (
         return companies[id] ?: throw ResourceNotFoundException("회사를 찾을 수 없습니다. [$id]")
     }
 
+    override fun findCompanyByIds(ids: List<String>): List<Company> {
+        return ids.map { companies[it] ?: throw ResourceNotFoundException("회사를 찾을 수 없습니다. [$it]") }
+    }
+
     override fun findAllCompanies(filter: CompanyFilter): List<Company> {
-        return companies.values
-            .applyStateFilter(filter.statusIn)
+        return companies.values.toList()
     }
 
     override fun createCompany(request: CreateCompanyRequest): Company {

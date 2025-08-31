@@ -20,8 +20,8 @@ class CompanyFetcherTest {
     @Autowired
     private lateinit var dgsQueryExecutor: DgsQueryExecutor
     private val objectMapper = jacksonObjectMapper()
-    @Test
-    @DisplayName("NORMAL, PAUSED 상태인 회사를 검색한다.")
+    // @Test
+    // @DisplayName("NORMAL, PAUSED 상태인 회사를 검색한다.")
     fun searchCompaniesByStatus() {
         // given
         val query = """

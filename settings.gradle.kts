@@ -1,7 +1,8 @@
 rootProject.name = "spring-playground"
 include(
     "persistence-sample",
-    "graphql-sample"
+    "graphql-sample",
+    "coroutine-sample"
 )
 
 pluginManagement {
