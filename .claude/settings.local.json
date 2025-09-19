@@ -3,7 +3,8 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(./gradlew:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(../gradlew test:*)"
     ],
     "deny": [],
     "ask": []
