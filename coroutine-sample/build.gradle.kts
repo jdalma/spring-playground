@@ -21,6 +21,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive")
     implementation("org.springframework:spring-web")
     implementation("io.netty:netty-all:4.1.104.Final")
+    implementation("io.micrometer:micrometer-core")
+    implementation("io.micrometer:micrometer-tracing")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
     testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
@@ -40,5 +43,5 @@ tasks.withType<Test> {
 }
 
 application {
-    mainClass.set("example.netty.NettyExceptionTestRunnerKt")
+    mainClass.set("example.CoroutineSampleApplicationKt")
 }

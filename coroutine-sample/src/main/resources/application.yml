@@ -1,6 +1,17 @@
 server:
-  port: 8082
-
+  port: 8080
+  tomcat:
+    keep-alive-timeout: 2000  # 2 seconds - shorter than client pool idle time
+    connection-timeout: 2000
 spring:
   application:
     name: coroutine-sample
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS}+09:00 --- [%15.15thread] %-40.40logger{39} : %msg%n"
+  level:
+    reactor.netty.http.client: DEBUG
+    reactor.netty.resources: DEBUG
+    reactor.netty.channel: DEBUG
+    io.netty.channel: DEBUG

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew:*)",
+      "Bash(curl:*)",
+      "Read(//Users/jeonghyeonjun/IdeaProjects/spring-playground/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
